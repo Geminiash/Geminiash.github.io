@@ -25,7 +25,6 @@ html, body {
     pointer-events: none;       
 }
 
-/* 告白文字层 —— 浮于星空之上，柔和居中 */
 .res {
     position: absolute;
     top: 50%;
