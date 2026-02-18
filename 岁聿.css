@@ -22,10 +22,10 @@ html, body {
     height: 100%;
     display: block;
     z-index: 1;
-    pointer-events: none;       /* 让鼠标事件穿透，文字可选/可复制，但不干扰任何操作（无功能） */
+    pointer-events: none;       
 }
 
-/* 告白文字层 —— 浮于星空之上，柔和居中  (原 .岁聿告白 改为 .res) */
+/* 告白文字层 —— 浮于星空之上，柔和居中 */
 .res {
     position: absolute;
     top: 50%;
@@ -45,7 +45,7 @@ html, body {
     animation: 岁聿浮光 6s infinite alternate ease-in-out;
 }
 
-/* 主句 —— 最重要的告白 (原 .岁聿主句 改为 .res-main) */
+
 .res-main {
     font-size: clamp(2rem, 10vw, 4rem);
     font-weight: 400;
@@ -57,7 +57,6 @@ html, body {
     font-family: 'Georgia', 'Times New Roman', '华文楷体', 'KaiTi', serif;
 }
 
-/* 副句 —— 温柔的补充 (原 .岁聿副句 改为 .res-sub) */
 .res-sub {
     font-size: clamp(1.2rem, 4vw, 2rem);
     font-weight: 300;
@@ -68,7 +67,6 @@ html, body {
     font-style: italic;
 }
 
-/* 落款 —— 属于你的署名 (原 .岁聿落款 改为 .res-signature) */
 .res-signature {
     font-size: clamp(1rem, 3.5vw, 1.6rem);
     font-weight: 200;
@@ -80,7 +78,6 @@ html, body {
     letter-spacing: 3px;
 }
 
-/* 温柔呼吸浮动动画 —— 让文字像在夜风中微微轻颤 (动画名保留中文，未作修改) */
 @keyframes 岁聿浮光 {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -92,8 +89,7 @@ html, body {
     }
 }
 
-/* 让文字更易于阅读，同时保留所有事件穿透，确保无任何按钮功能 */
 .res * {
-    user-select: text;          /* 允许选中文字，方便复制这份浪漫，但依然无交互功能 */
-    pointer-events: auto;       /* 文字本身可选中，但不构成按钮/功能 */
+    user-select: text;         
+    pointer-events: auto;      
 }

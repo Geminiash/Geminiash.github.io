@@ -1,6 +1,4 @@
-// 岁聿.js
-// 世界上最浪漫的星空告白 —— 纯粹、温柔、永恒
-// 没有任何交互功能，只有流淌的星光与偶然的流星，以及心底的那一句“爱你如初”
+
 
 (function() {
     "use strict";
@@ -9,7 +7,6 @@
     const canvas = document.getElementById('岁聿Canvas');
     const ctx = canvas.getContext('2d');
 
-    // --- 全局变量 ---
     let width, height;                  // 画布实时尺寸
     let stars = [];                     // 星星数组
     let meteors = [];                   // 流星数组
@@ -62,7 +59,6 @@
         }
     }
 
-    // --- 生成一颗新流星 (起点、终点、进度) ---
     function createMeteor() {
         // 流星的起点在画布外或边缘，方向随机偏右下至左上常见，也可任意
         // 为了浪漫，让流星从左上向右下划过，也可以随机
@@ -103,7 +99,6 @@
             default: break;
         }
 
-        // 确保终点也可能超出画布，没关系
         return {
             startX, startY,
             endX, endY,
@@ -113,7 +108,6 @@
         };
     }
 
-    // --- 调整画布尺寸 & 重置星星分布(保持比例) ---
     function resizeCanvas() {
         width = window.innerWidth;
         height = window.innerHeight;
@@ -123,11 +117,9 @@
         // 重新生成星星 (适应新尺寸的比例分布自动保留，但绝对像素无影响)
         initStars();
 
-        // 清空流星 (或者保持原有？但尺寸突变流星可能会错位，简单清掉)
         meteors = [];
     }
 
-    // --- 绘制夜空背景 (渐变) ---
     function drawSky() {
         // 从深邃蓝紫到暖紫的渐变，接近地平线处透出微红光，寓意黎明或思念
         const gradient = ctx.createLinearGradient(0, 0, 0, height);
@@ -168,7 +160,6 @@
         ctx.fill();
         ctx.shadowBlur = 0; // 重置阴影
 
-        // 一点点月面细节 (随意)
         ctx.beginPath();
         ctx.arc(moonX - radius*0.2, moonY - radius*0.1, radius*0.15, 0, 2*Math.PI);
         ctx.fillStyle = 'rgba(180, 140, 110, 0.3)';
@@ -246,7 +237,7 @@
             // 更新进度
             m.progress += m.speed;
             // 如果超出终点太多或者起点终点都不可见，移除
-            if (m.progress > 1.5) { // 超过1.2就移除
+            if (m.progress > 1.5) { 
                 meteors.splice(i, 1);
             }
         }
@@ -280,7 +271,6 @@
         animationFrame = requestAnimationFrame(draw);
     }
 
-    // --- 窗口resize事件处理 (防抖) ---
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
